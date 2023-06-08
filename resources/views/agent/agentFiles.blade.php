@@ -1,0 +1,138 @@
+@extends('layouts.frontend')
+@section('title')
+Agent Files
+@stop
+@section('header')
+    <div class="content-header row">
+    <div class="content-header col-md-6 col-12 mb-1">
+      <h3 class="content-header-title"><strong> Files under "{{$agent->name}}"</strong></h3>
+    </div>
+    <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
+      <div class="breadcrumb-wrapper col-12">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a>
+          </li>
+          <li class="breadcrumb-item"><a href="{{route('agents')}}">Agents</a>
+          </li>
+          <li class="breadcrumb-item"><a href="{{route('agent.business',['id'=>$agent->id])}}">Agent Business</a></li>
+          <li class="breadcrumb-item">Agent Files</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+@stop
+@section('content')
+	<div class="content-body">
+		<div class="row">
+        <div class="col-12">
+            <div class="card">
+              <div class="card-content collapse show">
+				<div class="row">
+              	<div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                    <div class="my-1 text-center">
+                      <div class="card-header mb-2 pt-0">
+                        <h5 class="warning">Total Files</h5>
+                        <h3 class="font-large-2 text-bold-200">{{$agent->total_files}}
+                        </h3>
+                      </div>
+                      <div class="card-content">
+                        <input type="text" value="81" class="knob hide-value responsive angle-offset" data-angleOffset="20"
+                        data-thickness=".15" data-linecap="round" data-width="130"
+                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
+                        data-fgColor="#FFA87D" data-knob-icon="icon-energy">
+                      </div>
+                     </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                    <div class="my-1 text-center">
+                      <div class="card-header mb-2 pt-0">
+                        <h5 class="danger">Files Not Started</h5>
+                        <h3 class="font-large-2 text-bold-200">{{$agent->files_not_started}}
+                        </h3>
+                      </div>
+                      <div class="card-content">
+                        <input type="text" value="70" class="knob hide-value responsive angle-offset" data-angleOffset="0"
+                        data-thickness=".15" data-linecap="round" data-width="130"
+                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
+                        data-fgColor="#FF7588" data-knob-icon="icon-pointer">
+                      </div>
+                    </div>
+                </div>
+
+				        <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                    
+                    <div class="my-1 text-center">
+                      <div class="card-header mb-2 pt-0">
+                        <h5 class="primary">Files in Process</h5>
+                        <h3 class="font-large-2 text-bold-200">{{$agent->files_in_process}}</h3>
+                      </div>
+                      <div class="card-content">
+                        <input type="text" value="65" class="knob hide-value responsive angle-offset" data-angleOffset="40"
+                        data-thickness=".15" data-linecap="round" data-width="130"
+                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
+                        data-fgColor="#00B5B8" data-knob-icon="icon-trophy">
+                      </div>
+                	</div> 
+                </div>
+            </div>
+    				<div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                    <div class="my-1 text-center">
+                      <div class="card-header mb-2 pt-0">
+                        <h5 class="warning">Files In Hold</h5>
+                        <h3 class="font-large-2 text-bold-200">{{$agent->files_in_hold}}
+                        </h3>
+                      </div>
+                      <div class="card-content">
+                        <input type="text" value="81" class="knob hide-value responsive angle-offset" data-angleOffset="20"
+                        data-thickness=".15" data-linecap="round" data-width="130"
+                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
+                        data-fgColor="#FFA87D" data-knob-icon="icon-energy">
+                      </div>
+                     </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                    <div class="my-1 text-center">
+                      <div class="card-header mb-2 pt-0">
+                        <h5 class="danger">Files Canceled</h5>
+                        <h3 class="font-large-2 text-bold-200">{{$agent->files_canceled}}
+                        </h3>
+                      </div>
+                      <div class="card-content">
+                        <input type="text" value="70" class="knob hide-value responsive angle-offset" data-angleOffset="0"
+                        data-thickness=".15" data-linecap="round" data-width="130"
+                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
+                        data-fgColor="#FF7588" data-knob-icon="icon-pointer">
+                      </div>
+                    </div>
+                </div>
+
+				<div class="col-xl-4 col-lg-6 col-md-12 border-right-blue-grey border-right-lighten-5">
+                    
+                    <div class="my-1 text-center">
+                      <div class="card-header mb-2 pt-0">
+                        <h5 class="primary">Files Finished</h5>
+                        <h3 class="font-large-2 text-bold-200">{{$agent->files_finished}}</h3>
+                      </div>
+                      <div class="card-content">
+                        <input type="text" value="65" class="knob hide-value responsive angle-offset" data-angleOffset="40"
+                        data-thickness=".15" data-linecap="round" data-width="130"
+                        data-height="130" data-inputColor="#BABFC7" data-readOnly="true"
+                        data-fgColor="#00B5B8" data-knob-icon="icon-trophy">
+                      </div>
+                	</div> 
+                </div>
+                </div>
+		    </div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+		
+		
+
+   
+@stop
